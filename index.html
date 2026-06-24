@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Het Eerlijke Verhaal · Recruitment</title>
+  <meta name="description" content="Vaste prijs per hire. Geen bureau-overhead, geen juniors, geen bullshit. Ernst van Doorn, interim recruiter vanuit Breda." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #F8F7F4;
+      --paper: #FFFFFF;
+      --ink: #141414;
+      --ink-soft: #444444;
+      --muted: #888888;
+      --border: #DEDBD4;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: 'Inter', system-ui, sans-serif;
+      font-size: 16px;
+      line-height: 1.65;
+      color: var(--ink);
+      background: var(--bg);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    h1, h2, h3 {
+      font-family: 'Fraunces', Georgia, serif;
+      font-weight: 600;
+      line-height: 1.15;
+      color: var(--ink);
+      margin: 0 0 0.6em;
+    }
+    h1 { font-size: clamp(2.4rem, 5vw, 3.8rem); letter-spacing: -0.02em; }
+    h2 { font-size: clamp(1.6rem, 3vw, 2.2rem); letter-spacing: -0.015em; }
+    h3 { font-size: 1.25rem; }
+    p { margin: 0 0 1em; color: var(--ink-soft); }
+    a { color: var(--ink); }
+    a:hover { opacity: 0.7; }
+
+    .container {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0 28px;
+    }
+
+    /* ---------- NAV ---------- */
+    .nav {
+      border-bottom: 1px solid var(--border);
+      background: var(--bg);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px 0;
+    }
+    .brand {
+      font-family: 'Fraunces', Georgia, serif;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--ink);
+      text-decoration: none;
+    }
+    .nav-cta {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--ink);
+      text-decoration: none;
+      border: 1.5px solid var(--ink);
+      padding: 8px 18px;
+      border-radius: 4px;
+      transition: background 0.15s, color 0.15s;
+    }
+    .nav-cta:hover {
+      background: var(--ink);
+      color: var(--bg);
+      opacity: 1;
+    }
+
+    /* ---------- HERO ---------- */
+    .hero {
+      padding: 96px 0 80px;
+      border-bottom: 1px solid var(--border);
+    }
+    .hero h1 {
+      max-width: 720px;
+      margin-bottom: 28px;
+    }
+    .hero-sub {
+      font-size: 1.15rem;
+      color: var(--ink-soft);
+      max-width: 600px;
+      margin-bottom: 0;
+      line-height: 1.65;
+    }
+
+    /* ---------- SECTIONS ---------- */
+    .section {
+      padding: 72px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .section:last-child {
+      border-bottom: none;
+    }
+    .label {
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 20px;
+    }
+
+    /* ---------- VERGELIJKING ---------- */
+    .compare {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      overflow: hidden;
+      margin-top: 40px;
+    }
+    @media (max-width: 600px) {
+      .compare { grid-template-columns: 1fr; }
+    }
+    .compare-col {
+      background: var(--bg);
+      padding: 32px;
+    }
+    .compare-col.right {
+      background: var(--paper);
+    }
+    .compare-col-label {
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 16px;
+    }
+    .compare-col h3 {
+      font-size: 1.1rem;
+      margin-bottom: 16px;
+    }
+    .compare-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      font-size: 0.95rem;
+      color: var(--ink-soft);
+    }
+    .compare-list li {
+      padding: 8px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .compare-list li:last-child { border-bottom: none; }
+
+    /* ---------- WERKWIJZE ---------- */
+    .steps {
+      margin-top: 40px;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+    .step {
+      display: grid;
+      grid-template-columns: 40px 1fr;
+      gap: 20px;
+      padding: 28px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .step:last-child { border-bottom: none; }
+    .step-num {
+      font-family: 'Fraunces', Georgia, serif;
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--muted);
+      padding-top: 2px;
+    }
+    .step h3 {
+      font-size: 1.05rem;
+      margin-bottom: 6px;
+    }
+    .step p {
+      font-size: 0.95rem;
+      margin: 0;
+    }
+
+    /* ---------- TARIEVEN ---------- */
+    .tarieven {
+      margin-top: 40px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      overflow: hidden;
+    }
+    @media (max-width: 600px) {
+      .tarieven { grid-template-columns: 1fr; }
+    }
+    .tarief {
+      background: var(--bg);
+      padding: 32px;
+    }
+    .tarief:last-child {
+      background: var(--paper);
+    }
+    .tarief-label {
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 12px;
+    }
+    .tarief-prijs {
+      font-family: 'Fraunces', Georgia, serif;
+      font-size: 2.2rem;
+      font-weight: 600;
+      color: var(--ink);
+      line-height: 1;
+      letter-spacing: -0.02em;
+      margin-bottom: 8px;
+    }
+    .tarief-sub {
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+    .garantie {
+      margin-top: 24px;
+      padding: 20px 24px;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      font-size: 0.95rem;
+      color: var(--ink-soft);
+      background: var(--paper);
+    }
+    .garantie strong { color: var(--ink); }
+
+    /* ---------- OVER ---------- */
+    .over-text {
+      max-width: 640px;
+    }
+    .over-text p {
+      font-size: 1.05rem;
+      line-height: 1.7;
+    }
+    .over-sig {
+      font-family: 'Fraunces', Georgia, serif;
+      font-size: 1.1rem;
+      color: var(--ink);
+      margin-top: 8px;
+    }
+
+    /* ---------- CTA ---------- */
+    .cta-block {
+      text-align: center;
+      padding: 80px 0;
+    }
+    .cta-block h2 {
+      margin-bottom: 16px;
+    }
+    .cta-block p {
+      font-size: 1.05rem;
+      margin-bottom: 32px;
+      max-width: 480px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .btn {
+      display: inline-block;
+      background: var(--ink);
+      color: var(--bg);
+      font-family: 'Inter', sans-serif;
+      font-size: 1rem;
+      font-weight: 600;
+      padding: 14px 32px;
+      border-radius: 4px;
+      text-decoration: none;
+      transition: opacity 0.15s;
+    }
+    .btn:hover { opacity: 0.8; color: var(--bg); }
+    .cta-alt {
+      margin-top: 20px;
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+    .cta-alt a { color: var(--muted); }
+
+    /* ---------- REFERENTIES ---------- */
+    .reviews {
+      margin-top: 40px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+    @media (max-width: 660px) {
+      .reviews { grid-template-columns: 1fr; }
+    }
+    .review {
+      background: var(--paper);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 28px 32px;
+    }
+    .review-quote {
+      font-size: 0.97rem;
+      line-height: 1.65;
+      color: var(--ink-soft);
+      margin-bottom: 16px;
+    }
+    .review-name {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--ink);
+    }
+
+    /* ---------- FOOTER ---------- */
+    .footer {
+      border-top: 1px solid var(--border);
+      padding: 36px 0;
+    }
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      font-size: 0.88rem;
+      color: var(--muted);
+    }
+    .footer-inner a { color: var(--muted); text-decoration: none; }
+    .footer-brand {
+      font-family: 'Fraunces', Georgia, serif;
+      font-size: 0.95rem;
+      color: var(--ink);
+      font-weight: 600;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <div class="container nav-inner">
+      <a href="#" class="brand">Het Eerlijke Verhaal</a>
+      <a href="#contact" class="nav-cta">Plan een gesprek</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container">
+      <p style="font-size: 0.85rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-bottom: 20px;">Het Eerlijke Verhaal Recruitment,Simpel, eerlijk en direct</p>
+      <h1>Bureaus vragen minstens €10.000 per hire. Het Eerlijke Verhaal kan het voor €5.000.</h1>
+      <p class="hero-sub">Het verschil: bureaus spreiden hun kansen over 20 klanten, hebben juniors die niet presteren, abonnementen op LinkedIn om massaberichten te kunnen versturen, goedbetaalde managers, personeelsuitjes en dure leasewagens. Die overhead betaal jij.</p>
+    </div>
+  </section>
+
+  <!-- VOOR WIE -->
+  <section class="section">
+    <div class="container">
+      <div class="label">Voor wie</div>
+      <h2>Voor bedrijven die dachten: dit moet goedkoper kunnen</h2>
+      <div class="over-text">
+        <p>Het Eerlijke Verhaal is er voor MKB-bedrijven in Nederland met 10 tot 200 medewerkers die al eens een bureau hebben gebruikt en dachten: dit moet goedkoper kunnen. Je hoeft geen HR-afdeling te hebben en het proces niet te kennen. Dat doe ik.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- VERGELIJKING -->
+  <section class="section">
+    <div class="container">
+      <div class="label">Het verschil</div>
+      <h2>Wat je bij een bureau betaalt, en wat je bij mij krijgt</h2>
+
+      <div class="compare">
+        <div class="compare-col">
+          <div class="compare-col-label">Een bureau</div>
+          <ul class="compare-list">
+            <li>Juniors die niet presteren</li>
+            <li>LinkedIn abonnementen en AI tools voor massaberichten</li>
+            <li>Goedbetaalde managers en accountteams</li>
+            <li>Mooi kantoor, dure leasewagens</li>
+          </ul>
+        </div>
+        <div class="compare-col right">
+          <div class="compare-col-label">Het Eerlijke Verhaal</div>
+          <ul class="compare-list">
+            <li>Als senior presteer ik</li>
+            <li>Geen LinkedIn spam, wel een warm netwerk</li>
+            <li>Ik ben mijn eigen beste manager</li>
+            <li>Gedeeld kantoor in Breda en een Ford Focus uit 2006</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WERKWIJZE -->
+  <section class="section">
+    <div class="container">
+      <div class="label">Hoe ik werk</div>
+      <h2>Je betaalt voor het proces, niet voor de kandidaat</h2>
+
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <div>
+            <h3>Ik neem de regie</h3>
+            <p>Van intake tot aanbieding. Jij hoeft er geen tijd aan kwijt te zijn, ik zorg dat het loopt.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div>
+            <h3>Ik vind de kandidaat</h3>
+            <p>Via LinkedIn, via mijn netwerk, via jouw netwerk, via een huidige medewerker, of via een directe sollicitatie. Het kanaal maakt niet uit, de kandidaat wel.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <div>
+            <h3>Jij hebt binnen 3 maanden een nieuwe collega</h3>
+            <p>Lukt dat niet, dan krijg je je geld terug.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TARIEVEN -->
+  <section class="section" id="tarieven">
+    <div class="container">
+      <div class="label">Tarieven</div>
+      <h2>Vaste prijs. Vooraf. Ongeacht hoe.</h2>
+
+      <div class="tarieven">
+        <div class="tarief">
+          <div class="tarief-label">Junior</div>
+          <div class="tarief-prijs">€5.000</div>
+          <div class="tarief-sub">ex BTW · vaste prijs</div>
+        </div>
+        <div class="tarief">
+          <div class="tarief-label">Medior</div>
+          <div class="tarief-prijs">€7.500</div>
+          <div class="tarief-sub">ex BTW · vaste prijs</div>
+        </div>
+        <div class="tarief">
+          <div class="tarief-label">Senior</div>
+          <div class="tarief-prijs">€10.000</div>
+          <div class="tarief-sub">ex BTW · vaste prijs</div>
+        </div>
+      </div>
+
+      <div class="garantie">
+        <strong>Garantie van een jaar.</strong> Ik draag alleen mensen voor die écht passen. Valt iemand binnen dat jaar uit, dan zoek ik opnieuw,zonder extra kosten.
+      </div>
+    </div>
+  </section>
+
+  <!-- VOORWAARDEN -->
+  <section class="section">
+    <div class="container">
+      <div class="label">Voorwaarden</div>
+      <h2>Helder, zonder kleine lettertjes</h2>
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">—</div>
+          <div>
+            <h3>Niveaus</h3>
+            <p>Junior = 0–2 jaar ervaring. Medior = 2–5 jaar. Senior = 5+. Twijfel? We bepalen het samen op basis van de rol.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">—</div>
+          <div>
+            <h3>Betaling</h3>
+            <p>Je betaalt volledig vooraf. Het startschot is het geld op mijn rekening.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">—</div>
+          <div>
+            <h3>Restitutie</h3>
+            <p>Bij geen aanname binnen 3 maanden wordt het volledige bedrag automatisch teruggestort. Geen gedoe, geen verzoek nodig.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">—</div>
+          <div>
+            <h3>Vervangingsgarantie</h3>
+            <p>Gaat het toch mis binnen een jaar en ligt dat aan de werknemer? Dan ga ik kosteloos aan de slag voor vervanging.</p>
+          </div>
+        </div>
+      </div>
+      <p style="margin-top: 24px; font-size: 0.9rem; color: var(--muted);">Mis ik iets? Hoor ik graag,<a href="mailto:ernst@heteerlijkeverhaal.nl" style="color: var(--muted);">ernst@heteerlijkeverhaal.nl</a></p>
+    </div>
+  </section>
+
+  <!-- REFERENTIES -->
+  <section class="section">
+    <div class="container">
+      <div class="label">Referenties</div>
+      <h2>Wat anderen zeggen</h2>
+      <div class="reviews">
+        <div class="review">
+          <p class="review-quote">"Ernst had de verantwoordelijkheid over onze recruitment. Met een structurele aanpak heeft hij de zorgen over recruitment volledig weggenomen. Met 92 aannames binnen een jaar, en een aanzienlijke kostenbesparing op traditionele bureau's, waren wij zeer tevreden over het resultaat."</p>
+          <div class="review-name">Stephan Seelaar, HR Manager, Samsung SDS</div>
+        </div>
+        <div class="review">
+          <p class="review-quote">"Ernst heeft ons geholpen bij de werving van een medeoprichter/directeur voor onze webshop Toverkast.nl. Hij was zeer grondig in het wervingsproces en presenteerde ons alleen de meest geschikte kandidaten. Hij hielp ons ook met het opstellen van de vacaturetekst en het verspreiden ervan via de juiste netwerken, waardoor we de functie succesvol konden invullen."</p>
+          <div class="review-name">Sophie de Jager, Founder, Toverkast</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTOREN -->
+  <section class="section">
+    <div class="container">
+      <div class="label">Sectoren</div>
+      <h2>Het maakt niet uit in welke sector jij zit</h2>
+      <div class="over-text">
+        <p>Recruitment is altijd hetzelfde. De bron waar je uit tapt verschilt, maar het proces niet. Een goede vacaturetekst schrijven, de juiste mensen vinden, het gesprek goed voeren: dat werkt bij een IT-bedrijf precies hetzelfde als bij een logistiek dienstverlener of een retailketen.</p>
+        <p>Mijn werkwijze schaalt over alle industrieën en alle rollen. Van junior medewerker tot directeur, van technologie tot zorg, van startup tot gevestigd MKB.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- OVER ERNST -->
+  <section class="section" id="over">
+    <div class="container">
+      <div class="label">Wie ik ben</div>
+      <div class="over-text">
+        <h2>Een no-nonsense Brabander met Rotterdamse werkwaarden</h2>
+        <p>Niet te veel praten, gewoon presteren. Ik ben in 2020 begonnen als recruiter bij HighTechXL en Unknown Group, heb daarna IT executive search gedaan bij Search X, en was het afgelopen jaar verantwoordelijk voor de volledige recruitment bij Samsung SDS.</p>
+        <p>Als beginnend ondernemer wil ik een concrete bijdrage leveren aan de personeelsbehoefte van andere ondernemers. Breed in ervaring, simpel in aanpak. Positief, eerlijk en direct.</p>
+        <div class="over-sig">— Ernst van Doorn</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section id="contact">
+    <div class="container">
+      <div class="cta-block">
+        <h2>Benieuwd wat Het Eerlijke Verhaal voor jouw bedrijf is?</h2>
+        <p>Een gesprek van 30 minuten kost niets. Vertel me wat je zoekt, dan leg ik je uit hoe ik werk.</p>
+        <a href="https://wa.me/31683795244" target="_blank" rel="noopener" class="btn">Plan een gesprek</a>
+        <div class="cta-alt">
+          Of mail naar <a href="mailto:ernst@heteerlijkeverhaal.nl">ernst@heteerlijkeverhaal.nl</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <span class="footer-brand">Het Eerlijke Verhaal</span>
+      <span>Ernst van Doorn · Breda · <a href="mailto:ernst@heteerlijkeverhaal.nl">ernst@heteerlijkeverhaal.nl</a> · +31 6 83 79 52 44</span>
+    </div>
+  </footer>
+
+</body>
+</html>
